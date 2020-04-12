@@ -1,11 +1,10 @@
 @extends('layout')
 
-@section('header')
-    <p>HEADER</p>
-@endsection
-
 
 @section('content')
-        <h1> HI BOIIIIIII</h1>
+<div id="wrapper">
+	<p>This is contact </p>
+</div>
+
 @endsection
 
