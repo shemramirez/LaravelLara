@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function show($slug)
+    public function show($idunno)
     {        
-            return view('/post',[
-                'post' => Posts::where('slug',$slug)->firstOrfail()
-            ]);
-        
+
+                //'post' => Post::where('slug',$slug)->firstOrfail()        
+        return view('post',[
+            'post' => Posts::where('id',$idunno)->firstOrfail()
+        ]);
+
+           // 'articles' => App\Article::latest()->take(3)->get()       
     }
 }

@@ -37,13 +37,30 @@ Route::get('/',function () {
 
 
 Route::get('/about',function () {
-    return view('/about');
+    return view('/about',[
+        // 'articles' => App\Article::all()      === shows all
+        // articles' => App\Article::latest(3)->get()  ==== shows latest
+        // This shows the latest take the first 3 then get
+        'articles' => App\Article::latest()->take(2)->get()
+    ]);
 });
 
 Route::get('/contact',function () {
     return view('/contact');
 });
 
-Route::get('/posts/{post}','PostController@show');
+Route::get('/career',function () {
+    return view('/career');
+});
 
+Route::get('/article','ArticleController@index');
+Route::post('/article','ArticleController@store');
+Route::get('/article/create','ArticleController@create');
+Route::get('/article/{articles}','ArticleController@show')->name('article.show');
+Route::get('/article/{articles}/edit','ArticleController@edit');
+Route::put('/article/{articles}','ArticleController@update');
+
+
+
+Route::get('post/{post}','PostController@show');
 
